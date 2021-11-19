@@ -1,0 +1,23 @@
+﻿.canvas__wrapper {
+    overflow: hidden;
+    display: flex;
+    place-content: center;
+}
+
+.canvas__container {
+    margin-top: 5rem;
+    border: 20px solid black;
+    background-color: lightblue;
+    box-shadow: inset black 0px 0px 2px 5px;
+    pointer-events: none;
+    width: fit-content;
+}
+
+.debugging {
+    padding: 1rem;
+    width: 80%;
+}
+
+div {
+    padding: 0.3rem;
+}

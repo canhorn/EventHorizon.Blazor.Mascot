@@ -1,0 +1,16 @@
+﻿
+<div class="speech-bubble__container" style="@($"left: {PositionX - _leftOffset}px; top: {PositionY + (OffsetTop * _topOffset)}px;") @($"transition: {Transition};")">
+    <div class="speech-bubble --@(BubbleType) @(AsMarquee ? "--as-marquee" : string.Empty)" style="@($"left: {OffsetLeft}px; top: {OffsetTop}px;")">
+        @if (AsMarquee)
+        {
+            <marquee>
+                @((MarkupString)Text)
+            </marquee>
+        }
+        else
+        {
+            @((MarkupString)Text)
+        }
+    </div>
+</div>
+

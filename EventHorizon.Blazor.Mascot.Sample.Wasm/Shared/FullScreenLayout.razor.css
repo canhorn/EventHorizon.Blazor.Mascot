@@ -1,0 +1,21 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+}

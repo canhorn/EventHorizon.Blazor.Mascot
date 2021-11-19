@@ -1,0 +1,108 @@
+﻿@page "/Mascot/playground"
+@using EventHorizon.Blazor.Mascot.Components
+
+<PageTitle>Mascot Playground</PageTitle>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="error-message">
+        @ErrorMessage
+    </div>
+}
+@if (Avatar != null && Environment != null)
+{
+
+    <div class="canvas__wrapper">
+        <div class="canvas__container">
+            <MascotCanvas Avatar="Avatar"
+                      Environment="Environment"
+                      SpeechBubbleDetails="SpeechBubbleDetails" />
+        </div>
+    </div>
+
+    <div class="debugging">
+        <div>
+            <EditForm Model="this">
+                <h2>Actions</h2>
+                <input @bind-value="ActionToRun" />
+                <button @onclick="@(() => Avatar?.Action(ActionToRun, 1))">Run</button>
+                <div>
+                    @string.Join(", ", Avatar.Config.Actions.Keys)
+                </div>
+            </EditForm>
+        </div>
+        <div>
+            <EditForm Model="this">
+                <h2>Environment</h2>
+                <div>
+                    <label>Avatar Base Url</label>
+                    <input style="width: 100%" @bind-value="AvatarConfigBaseUrl" />
+                </div>
+                <div>
+                    <label>Avatar Url</label>
+                    <input style="width: 100%" @bind-value="AvatarConfigUrl" />
+                </div>
+                <div>
+                    <label>Height</label>
+                    <input @bind-value="EnvironmentHeight" />
+                </div>
+                <div>
+                    <label>Width</label>
+                    <input @bind-value="EnvironmentWidth" />
+                </div>
+                <button @onclick="HandleUpdateEnvironment">
+                    Update
+                </button>
+
+                <div>
+                    <button @onclick="LoadEevee">Load Eevee</button>
+                    <button @onclick="LoadHinata">Load Hinata</button>
+                </div>
+            </EditForm>
+        </div>
+        <div>
+            <EditForm Model="SpeechBubbleDetails">
+                <h2>Speech Bubble</h2>
+                <div>
+                    <label>
+                        <input @bind-value="SpeechBubbleDetails.Show" type="checkbox" />
+                        Show?
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input @bind-value="SpeechBubbleDetails.AsMarquee" type="checkbox" />
+                        As Marquee?
+                    </label>
+                </div>
+                <div>
+                    <label>Text</label>
+                    <input @bind-value="SpeechBubbleDetails.Text" />
+                </div>
+                <div>
+                    <label>Text</label>
+                    <select @bind="SpeechBubbleDetails.Type">
+                        <option value="normal">Normal</option>
+                        <option value="thought">Thought</option>
+                    </select>
+                </div>
+                <div>
+                    <button>Update</button>
+                </div>
+            </EditForm>
+        </div>
+        <hr />
+        <div>
+            <div>Environment:</div>
+            <pre>@($"Height: {Environment.Height}\nWidth: {Environment.Width}")</pre>
+        </div>
+        <div>
+            <div>Avatar</div>
+            <JsonDump Data="Avatar" />
+        </div>
+    </div>
+}
+
+@code {
+    public string ActionToRun { get; set; } = "sleep";
+}

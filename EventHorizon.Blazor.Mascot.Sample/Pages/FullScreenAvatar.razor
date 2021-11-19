@@ -1,0 +1,25 @@
+﻿@page "/full-screen"
+@implements IDisposable
+@layout FullScreenLayout
+@using BlazorPro.BlazorSize
+@using EventHorizon.Blazor.Mascot.Actions
+@using EventHorizon.Blazor.Mascot.Character
+@using EventHorizon.Blazor.Mascot.Components
+
+<PageTitle>Full Screen Avatar</PageTitle>
+
+@if (Canvas != null)
+{
+    <div class="canvas__wrapper">
+        <div class="canvas__container">
+            <MascotCanvas Avatar="Avatar"
+                      Environment="Environment"
+                      SpeechBubbleDetails="SpeechBubbleDetails" />
+        </div>
+    </div>
+}
+else
+{
+    <div>Loading...</div>
+}
+

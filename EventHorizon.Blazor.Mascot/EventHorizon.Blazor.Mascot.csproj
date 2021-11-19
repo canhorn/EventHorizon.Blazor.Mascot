@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+
+		<AssemblyTitle>EventHorizon.Blazor.Mascot</AssemblyTitle>
+		<AssemblyName>EventHorizon.Blazor.Mascot</AssemblyName>
+		<PackageId>EventHorizon.Blazor.Mascot</PackageId>
+
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>All you need to display a little mascot on your website built with Blazor.</Description>
+		<PackageTags>Blazor, RCL, Mascot</PackageTags>
+
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+		<Authors>Cody Merritt Anhorn</Authors>
+		<PackageProjectUrl>https://github.com/canhorn/EventHorizon.Blazor.Mascot</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/canhorn/EventHorizon.Blazor.Mascot</RepositoryUrl>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="\"/>
+
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+	</ItemGroup>
+
+</Project>

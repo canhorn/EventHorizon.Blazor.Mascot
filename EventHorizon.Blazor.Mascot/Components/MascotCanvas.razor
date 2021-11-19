@@ -1,0 +1,21 @@
+﻿<div style="height: @(Environment.Height)px; width: @(Environment.Width)px" class="canvas">
+    <div class="avatar"
+         style="@($"left: {Avatar.Position.X}px; top: {Avatar.Position.Y}px;") @($"transition: {Avatar.Transition};")">
+        <img class="@(Avatar.Image.ClassName)"
+             src="@(Avatar.Image.Src)"
+             style="@($"left: {Avatar.Image.Left}; top: {Avatar.Image.Top}; position: relative;")" />
+    </div>
+
+    @if (SpeechBubbleDetails.Show)
+    {
+        <SpeechBubble PositionX="Avatar.Position.X"
+                  PositionY="Avatar.Position.Y"
+                  OffsetLeft="Avatar.Image.LeftInPx"
+                  OffsetTop="Avatar.Image.TopInPx"
+                  Transition="@Avatar.Transition"
+                  AsMarquee="@SpeechBubbleDetails.AsMarquee"
+                  BubbleType="@SpeechBubbleDetails.Type"
+                  Text="@SpeechBubbleDetails.Text" />
+    }
+</div>
+

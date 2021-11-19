@@ -1,0 +1,13 @@
+﻿.avatar {
+    position: relative;
+}
+
+img.reverse-horizontal {
+    transform: scaleX(-1);
+    transform-origin: 50% 50%;
+}
+
+img.reverse-vertical {
+    transform: scaleY(-1);
+    transform-origin: 50% 50%;
+}

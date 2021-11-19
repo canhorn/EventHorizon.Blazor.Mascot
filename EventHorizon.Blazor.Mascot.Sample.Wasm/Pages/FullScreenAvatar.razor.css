@@ -1,0 +1,8 @@
+﻿.canvas__wrapper {
+    overflow: hidden;
+}
+
+.canvas__container {
+    margin-top: 198px;
+    border: solid 1px black
+}
