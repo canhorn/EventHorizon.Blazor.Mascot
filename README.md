@@ -105,7 +105,8 @@ public partial class FullScreenAvatar
     public async Task Setup()
     {
         var browserSize = await ResizeListener.GetBrowserWindowSize();
-        EnvironmentHeight = browserSize.Height - 200; // 200 is the top padding, so we can see the Avatar walk on the top
+        // 200 is the top padding, so we can see the Avatar walk on the top
+        EnvironmentHeight = browserSize.Height - 200;
         EnvironmentWidth = browserSize.Width;
 
         var client = HttpClientFactory.CreateClient();
@@ -124,7 +125,6 @@ public partial class FullScreenAvatar
         {
             Character.BaseUrl = $"{AvatarConfigBaseUrl}{Character.BaseUrl}";
         }
-        // TODO: Get Canvas Environment sizing from browser
         Avatar = new MascotAvatar(
             Canvas = new Canvas(
                 new CanvasEnvironment(
